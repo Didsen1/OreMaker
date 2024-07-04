@@ -38,7 +38,7 @@ const modifyAndSaveData = (originalFilePath, newFilePath) => {
                 item.height *= 1.6; // Изменяем значение высоты
                 item.rarity *= 7; // Изменяем значение редкости (больше реже)
                 item.density = 55; // Изменяем значение плотности (меньше реже)
-                item.chance_additional_ore = 50;
+                // item.chance_additional_ore = 1; // Изменяем шанс на попутные руды //ошушение что сейчас это не работает
             }
             if (key.includes('gold') || key.includes('platinum')) {
                 item.width = (item.width / 5) * 1.6; // Изменяем значение ширины
