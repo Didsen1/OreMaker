@@ -34,22 +34,22 @@ const modifyAndSaveData = (originalFilePath, newFilePath) => {
         Object.entries(result).forEach(([key, item]) => {
             if (!key.includes('surface') && !key.includes('gold') && !key.includes('platinum')) {
                 // Если ключ НЕ содержит 'surface', меняем все значения
-                item.width *= 1.6; // Изменяем значение ширины
-                item.height *= 1.6; // Изменяем значение высоты
-                item.rarity *= 7; // Изменяем значение редкости (больше реже)
+                item.width = Math.round(item.width * 1.6); // Изменяем значение ширины
+                item.height = Math.round(item.height * 1.6); // Изменяем значение высоты
+                item.rarity = Math.round(item.rarity * 7); // Изменяем значение редкости (больше реже)
                 item.density = 55; // Изменяем значение плотности (меньше реже)
-                // item.chance_additional_ore = 1; // Изменяем шанс на попутные руды //ошушение что сейчас это не работает
+                item.chance_additional_ore = 10; // Изменяем шанс на попутные руды //ошушение что сейчас это не работает
             }
             if (key.includes('gold') || key.includes('platinum')) {
-                item.width = (item.width / 5) * 1.6; // Изменяем значение ширины
-                item.height = (item.height / 5) * 1.6; // Изменяем значение высоты
-                item.rarity *= 7;  // Изменяем значение редкости (больше реже)
+                item.width = Math.round((item.width / 5) * 1.6); // Изменяем значение ширины
+                item.height = Math.round((item.height / 5) * 1.6); // Изменяем значение высоты
+                item.rarity = Math.round(item.rarity * 7); // Изменяем значение редкости (больше реже)
                 item.density = 55; // Изменяем значение плотности (меньше реже)
             }
             if (key.includes('surface')) {
                 // Если ключ СОДЕРЖИТ 'surface', меняем только width и height
-                item.width *= 1.6; // Изменяем значение ширины
-                item.height *= 1.6; // Изменяем значение высоты
+                item.width = Math.round(item.width * 1.6); // Изменяем значение ширины
+                item.height = Math.round(item.height * 1.6); // Изменяем значение высоты
             }
         });
 
